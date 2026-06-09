@@ -80,5 +80,22 @@ class WaterSource(db.Model):
     lazy=True
     )
 
+    def to_dict(self):
+        return {
+            "water_source_id": self.water_source_id,
+            "created_by": self.created_by,
+            "name": self.name,
+            "type": self.type,
+            "latitude": float(self.latitude),
+            "longitude": float(self.longitude),
+            "capacity_liters": (
+                float(self.capacity_liters)
+                if self.capacity_liters is not None
+                else None
+            ),
+            "description": self.description,
+            "status": self.status
+        }
+
     def __repr__(self):
         return f"<WaterSource {self.name}>"

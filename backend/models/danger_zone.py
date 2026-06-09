@@ -59,5 +59,17 @@ class DangerZone(db.Model):
         lazy=True
     )
 
+    def to_dict(self):
+        return {
+            "danger_zone_id": self.danger_zone_id,
+            "zone_name": self.zone_name,
+            "latitude": float(self.latitude),
+            "longitude": float(self.longitude),
+            "radius_meters": float(self.radius_meters),
+            "risk_level": self.risk_level,
+            "description": self.description,
+            "created_by": self.created_by
+        }
+
     def __repr__(self):
         return f"<DangerZone {self.zone_name}>"

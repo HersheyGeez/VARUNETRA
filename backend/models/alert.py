@@ -63,5 +63,18 @@ class Alert(db.Model):
         back_populates="alerts"
     )
 
+    def to_dict(self):
+        return {
+            "alert_id": self.alert_id,
+            "alert_type": self.alert_type,
+            "severity": self.severity,
+            "title": self.title,
+            "description": self.description,
+            "water_source_id": self.water_source_id,
+            "danger_zone_id": self.danger_zone_id,
+            "generated_by": self.generated_by,
+            "is_active": self.is_active
+        }
+
     def __repr__(self):
         return f"<Alert {self.alert_id}>"

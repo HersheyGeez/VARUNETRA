@@ -91,5 +91,20 @@ class Report(db.Model):
     lazy=True
     )
 
+    def to_dict(self):
+        return {
+            "report_id": self.report_id,
+            "user_id": self.user_id,
+            "water_source_id": self.water_source_id,
+            "latitude": float(self.latitude),
+            "longitude": float(self.longitude),
+            "report_type": self.report_type,
+            "title": self.title,
+            "description": self.description,
+            "severity": self.severity,
+            "status": self.status,
+            "verified_by": self.verified_by
+        }
+
     def __repr__(self):
         return f"<Report {self.report_id}>"

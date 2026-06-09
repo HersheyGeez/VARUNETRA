@@ -1,5 +1,6 @@
 import os
 from dotenv import load_dotenv
+from datetime import timedelta
 
 load_dotenv()
 
@@ -11,6 +12,8 @@ class Config:
     DB_SERVER = os.getenv("DB_SERVER")
     DB_NAME = os.getenv("DB_NAME")
     DB_DRIVER = os.getenv("DB_DRIVER")
+    
+    JWT_ACCESS_TOKEN_EXPIRES = timedelta(hours=24)
 
     SQLALCHEMY_DATABASE_URI = (
         f"mssql+pyodbc://@{DB_SERVER}/{DB_NAME}"
