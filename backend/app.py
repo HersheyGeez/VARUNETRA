@@ -1,19 +1,20 @@
 from flask import Flask
 
 from config import Config
-from extensions import db
+from extensions import db, jwt
 
 import models
 
-from routes import health_bp
-
+from routes import health_bp, auth_bp
 
 app = Flask(__name__)
 app.config.from_object(Config)
 
 db.init_app(app)
+jwt.init_app(app)
 
 app.register_blueprint(health_bp)
+app.register_blueprint(auth_bp)
 
 
 @app.route("/")
