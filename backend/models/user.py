@@ -59,6 +59,38 @@ class User(db.Model):
     back_populates="creator",
     lazy=True
     )
+    
+    reports_created = db.relationship(
+    "Report",
+    foreign_keys="Report.user_id",
+    back_populates="reporter",
+    lazy=True
+    )
+
+    reports_verified = db.relationship(
+        "Report",
+        foreign_keys="Report.verified_by",
+        back_populates="verifier",
+        lazy=True
+    )
+
+    uploaded_report_images = db.relationship(
+    "ReportImage",
+    back_populates="uploader",
+    lazy=True
+    )
+    
+    uploaded_water_source_images = db.relationship(
+    "WaterSourceImage",
+    back_populates="uploader",
+    lazy=True
+    )
+    
+    danger_zones = db.relationship(
+    "DangerZone",
+    back_populates="creator",
+    lazy=True
+    )
 
     def __repr__(self):
         return f"<User {self.username}>"

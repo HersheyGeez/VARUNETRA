@@ -56,5 +56,29 @@ class WaterSource(db.Model):
         back_populates="water_sources"
     )
 
+    sensor_nodes = db.relationship(
+    "SensorNode",
+    back_populates="water_source",
+    lazy=True
+    )
+    
+    reports = db.relationship(
+    "Report",
+    back_populates="water_source",
+    lazy=True
+    )
+    
+    images = db.relationship(
+    "WaterSourceImage",
+    back_populates="water_source",
+    lazy=True
+    )
+    
+    alerts = db.relationship(
+    "Alert",
+    back_populates="water_source",
+    lazy=True
+    )
+
     def __repr__(self):
         return f"<WaterSource {self.name}>"
