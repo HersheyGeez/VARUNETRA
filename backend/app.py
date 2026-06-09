@@ -1,10 +1,11 @@
 from flask import Flask, jsonify
-from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import text
+from models.role import Role
+from models.user import User
+from models.water_source import WaterSource
 
 from config import Config
-
-db = SQLAlchemy()
+from extensions import db
 
 app = Flask(__name__)
 app.config.from_object(Config)
@@ -28,7 +29,7 @@ def health_check():
         return jsonify({
             "status": "healthy",
             "database": "connected"
-        }), 200
+        })
 
     except Exception as e:
         return jsonify({
