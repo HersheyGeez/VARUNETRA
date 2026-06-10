@@ -58,15 +58,24 @@ function renderDashboard() {
                         💧 Water Sources
                     </button>
 
-                    <button class="nav-btn">
+                    <button
+                        id="nav-reports"
+                        class="nav-btn"
+                    >
                         📋 Reports
                     </button>
 
-                    <button class="nav-btn">
+                    <button
+                        id="nav-danger-zones"
+                        class="nav-btn"
+                    >
                         ⚠ Danger Zones
                     </button>
 
-                    <button class="nav-btn">
+                    <button
+                        id="nav-alerts"
+                        class="nav-btn"
+                    >
                         🚨 Alerts
                     </button>
 
@@ -243,6 +252,33 @@ function renderDashboard() {
         .addEventListener(
             "click",
             renderWaterSourcesPage
+        );
+
+    document
+        .getElementById(
+            "nav-reports"
+        )
+        .addEventListener(
+            "click",
+            renderReportsPage
+        );
+    
+    document
+        .getElementById(
+            "nav-danger-zones"
+        )
+        .addEventListener(
+            "click",
+            renderDangerZonesPage
+        );
+
+    document
+        .getElementById(
+            "nav-alerts"
+        )
+        .addEventListener(
+            "click",
+            renderAlertsPage
         );
 
     document
