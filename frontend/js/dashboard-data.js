@@ -59,3 +59,16 @@ async function loadDashboardStats() {
         );
     }
 }
+
+async function refreshDashboard() {
+
+    try {
+
+        await loadDashboardStats();
+
+    }
+    catch(error){
+
+        console.error(error);
+    }
+}

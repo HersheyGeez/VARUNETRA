@@ -44,11 +44,17 @@ function renderDashboard() {
 
                 <aside class="sidebar">
 
-                    <button class="nav-btn active">
+                    <button
+                        id="nav-dashboard"
+                        class="nav-btn active"
+                    >
                         🏠 Dashboard
                     </button>
 
-                    <button class="nav-btn">
+                    <button
+                        id="nav-water-sources"
+                        class="nav-btn"
+                    >
                         💧 Water Sources
                     </button>
 
@@ -66,7 +72,10 @@ function renderDashboard() {
 
                 </aside>
 
-                <main class="content">
+                <main 
+                    class="content"
+                    id="main-content"
+                >
 
                     <div class="hero-banner">
 
@@ -227,7 +236,27 @@ function renderDashboard() {
         }
     );
 
-    
+    document
+        .getElementById(
+            "nav-water-sources"
+        )
+        .addEventListener(
+            "click",
+            renderWaterSourcesPage
+        );
+
+    document
+        .getElementById(
+            "nav-dashboard"
+        )
+        .addEventListener(
+            "click",
+            () => {
+
+                renderDashboard();
+            }
+        );
+
 
 }
 
